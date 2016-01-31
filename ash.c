@@ -138,7 +138,11 @@ void show_prompt() {
   char *prompt;
   prompt = getenv("wsh_prompt");
   if (prompt == NULL) {
+<<<<<<< HEAD
     printw("Wildebeest%%");
+=======
+    printw("Wildebeest%% ");
+>>>>>>> 179f214532c0c08f3328b6005ec85c23c7f0b138
   } else {
     printw("%s", prompt);
   }
