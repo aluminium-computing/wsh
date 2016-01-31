@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ncurses.h>
 #include "history.h"
 
 #define FALSE 0
@@ -118,6 +118,7 @@ int bang(char *data) {
       return FALSE;
     } 
   }
+  return 2;
 }
 
  

@@ -138,7 +138,7 @@ void show_prompt() {
   char *prompt;
   prompt = getenv("wsh_prompt");
   if (prompt == NULL) {
-    printw("Wildebeest%");
+    printw("Wildebeest%%");
   } else {
     printw("%s", prompt);
   }
@@ -226,7 +226,7 @@ BOOL find_exec (char *dir, char **argv) {
   struct dirent *content;
   dirp=opendir(dir);
   if (dirp==NULL) return FALSE;
-  while  (content=readdir(dirp)){
+  while  ( (content=readdir(dirp)) ){
    if (strncmp(content->d_name, argv[0], 256)==0){
      char full_path[MAX_COMMAND];
      strncpy(full_path, dir, MAX_COMMAND);
@@ -268,8 +268,7 @@ void spec_char_expand(char *command_line) {
   int i=0;
   while (command_line[i] != '\0') {
     int spc;
-    if (spc = 
-    is_spec_char(command_line[i])) {
+    if ( (spc = is_spec_char(command_line[i])) ) {
       if (spc == 589) {
         char temp_command_line[MAX_COMMAND];
         char *home_dir;
